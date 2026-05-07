@@ -8,20 +8,21 @@ spec:
 
   chart:
     spec:
-      chart: fastapi-app
+      chart: ./fastapi-app
       sourceRef:
         kind: GitRepository
         name: fastapi-helm-repo
+        # namespace: flaskapi-prod
 
   values:
     image:
       repository: ghcr.io/pauldjmetsi/fastapi-docker-app
-      tag: "latest"
+      tag: "2c173431aee1e0ca5d176e323d57d970312d0d48"
 
     env:
       APP_ENV: prod
       APP_NAME: fastapi-prod
-      FEATURE_FLAG: "false"
+      FEATURE_FLAG: "true"
 
     secret:
       API_KEY: "prod-secret"
