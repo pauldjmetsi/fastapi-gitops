@@ -8,10 +8,11 @@ spec:
 
   chart:
     spec:
-      chart: fastapi-app
+      chart: ./fastapi-app
       sourceRef:
         kind: GitRepository
         name: fastapi-helm-repo
+        namespace: default
 
   values:
     image:
