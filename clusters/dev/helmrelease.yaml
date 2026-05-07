@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: GitRepository
         name: fastapi-helm-repo
-        namespace: default
+        namespace: flaskapi-dev
 
   values:
     image:
