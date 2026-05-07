@@ -1,0 +1,36 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: fastapi-dev
+spec:
+  interval: 5m
+  releaseName: fastapi-dev
+
+  chart:
+    spec:
+      chart: fastapi-app
+      sourceRef:
+        kind: GitRepository
+        name: fastapi-helm-repo
+
+  values:
+    image:
+      repository: ghcr.io/pauldjmetsi/fastapi-docker-app
+      tag: "latest"
+
+    env:
+      APP_ENV: dev
+      APP_NAME: fastapi-dev
+      FEATURE_FLAG: "true"
+
+    secret:
+      API_KEY: "dev-secret"
+
+    ingress:
+      enabled: true
+      className: kommander-traefik
+      issuer: selfsigned-issuer
+      appName: fastapi
+      environment: dev
+      nipDomain: "10.2.0.151.nip.io"
+      tlsSecret: fastapi-dev-tls
