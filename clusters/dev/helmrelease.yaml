@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: ghcr.io/pauldjmetsi/fastapi-docker-app
-      tag: "b7cd6952dab8fb8bcc681406b1cc820aff80c875"
+      tag: "fe32b14"
 
     env:
       APP_ENV: dev
