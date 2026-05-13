@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: fastapi-helm-repo
+  # namespace: flaskapi-dev
+spec:
+  interval: 1m
+  url: https://github.com/pauldjmetsi/fastapi-helm
+  ref:
+    branch: main
